@@ -1,18 +1,23 @@
 #include <iostream>
-#include <cstring>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+#define FASTIO ios::sync_with_stdio(false); cin.tie(0); cout.tie(0)
 using namespace std;
+typedef long long ll;
 
-long long fib[100];
+int n;
+ll arr[100];
 
-long long fibo(int n) {
-	if (fib[n] != -1) return fib[n];	// 초기화됐으면 그 값을 반환
-	return fib[n] = fibo(n - 1) + fibo(n - 2);	// 초기화되지 않았으면 배열에 값을 대입한 후 반환
+ll sol(int n) {
+  if(n==0||n==1) return arr[n]=n;
+  if(!arr[n]) arr[n] = sol(n-1)+sol(n-2);
+  return arr[n];
 }
 
 int main() {
-	int n;
-	cin >> n;
-	memset(fib, -1, sizeof(fib));	// fib 배열을 모두 -1로 초기화
-	fib[0] = 0; fib[1] = 1;		// 0번째와 1번째 요소는 각각 0과 1로 초기화
-	cout << fibo(n);
+  FASTIO;
+  cin >> n;
+  cout << sol(n);
 }
