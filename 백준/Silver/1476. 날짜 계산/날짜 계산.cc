@@ -13,12 +13,9 @@ ll ans;
 int main() {
   FASTIO;
   cin >> E >> S >> M;
-  if(E==15) E=0;
-  if(S==28) S=0;
-  if(M==19) M=0;
   ans = 1;
   while(1) {
-    if(ans%15==E&&ans%28==S&&ans%19==M) break;
+    if((ans-E)%15==0&&(ans-S)%28==0&&(ans-M)%19==0) break;
     ans++;
   }
   cout << ans;
