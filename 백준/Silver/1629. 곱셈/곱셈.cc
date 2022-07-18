@@ -17,5 +17,3 @@ int main() {
   cin >> A >> B >> C;
   cout << pow(A%C,B)%C;
 }
-// modulo 속성을 이용하는 문제
-// B번 곱하면 TLE - 분할정복?
